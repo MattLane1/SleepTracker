@@ -10,6 +10,9 @@ import { NavController } from 'ionic-angular';
 
 export class HomePage {
 
+    date: string;
+    time: string;
+
     constructor(public navCtrl: NavController, storage: Storage) {
 
         //Set up internal storage through Ionic2
@@ -28,7 +31,15 @@ export class HomePage {
     //The user has pressed the button that they have gone to sleep
     sleep() {
 
-        console.log('Zzzz');
+        //Get the current time and date
+        this.date = new Date().toLocaleDateString();
+        this.time = new Date().toLocaleTimeString();
+
+        //Debug
+        console.log('Sleep');
+        console.log(this.time);
+        console.log(this.date);
+
     }
 
     //The user has pressed the button to signal they have woken up in the night
@@ -38,6 +49,16 @@ export class HomePage {
 
     //The user has woke up for the day
     wake() {
-        console.log('Morning');
+
+        //Get the current time and date
+        this.date = new Date().toLocaleDateString();
+        this.time = new Date().toLocaleTimeString();
+
+        //Debug
+        console.log('Wake');
+        console.log(this.time);
+        console.log(this.date);
+
     }
+
 }
